@@ -7,7 +7,7 @@ import (
 func main() {
 	/* TEST CODE*/
 	mapa := make(map[int][]int)
-	for i := 1; i < 1e5; i++ {
+	for i := 1; i < 1e6; i++ {
 		mapa[i] = genChain(i)
 	}
 	fmt.Printf("es :%d \n", maxChain(mapa))
@@ -35,13 +35,13 @@ func genChain(start int) []int {
 		}
 		steps = append(steps, 3*steps[len(steps)-1]+1)
 	}
-	printChain(steps)
+	//printChain(steps)
 	return steps
 }
 
 func maxChain(info map[int][]int) int {
-	var chainSteps int = 0
-	var start int = 0
+	var chainSteps int
+	var start int
 
 	for key, value := range info {
 		size := len(value)
